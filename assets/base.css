@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -5,7 +7,9 @@
   --alpha-badge-border: 0.1;
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
-  --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
+    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  --primary-font-family: 'BodoniMedium', Bodoni, serif;
 }
 
 .product-card-wrapper .card,
@@ -242,7 +246,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-size: 1.5rem;
   letter-spacing: 0.06rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
-  font-family: var(--font-body-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
 }
@@ -258,7 +262,7 @@ h5,
 .h3,
 .h4,
 .h5 {
-  font-family: var(--font-heading-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
@@ -331,7 +335,7 @@ h3,
 
 h4,
 .h4 {
-  font-family: var(--font-heading-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-heading-style);
   font-size: calc(var(--font-heading-scale) * 1.5rem);
 }
@@ -1556,7 +1560,7 @@ details[open] > .share-button__fallback {
   appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  font-family: var(--font-body-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.6rem;
@@ -1609,7 +1613,7 @@ details[open] > .share-button__fallback {
 }
 
 .select__select {
-  font-family: var(--font-body-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.2rem;
@@ -1783,7 +1787,7 @@ details[open] > .share-button__fallback {
 /* Text area */
 
 .text-area {
-  font-family: var(--font-body-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   min-height: 10rem;
@@ -1899,7 +1903,7 @@ input[type='checkbox'] {
 
 .quantity__input {
   color: currentColor;
-  font-family: var(--font-body-family);
+  font-family: var(--primary-font-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.6rem;
@@ -2075,7 +2079,11 @@ input[type='checkbox'] {
 
 /* utility-bar */
 .utility-bar {
-  height: 100%;
+  position: sticky !important;
+  top: 0;
+  z-index: 1000; /* Adjust the z-index to ensure it stays on top of other elements */
+  background-color: rgb(var(--color-foreground)); /* Ensure background color is set */
+  color: rgb(var(--color-background)); /* Ensure text color is set */
 }
 
 .utility-bar--bottom-border {
@@ -2323,7 +2331,17 @@ input[type='checkbox'] {
   z-index: initial;
 }
 
-/* Main Header Layout */
+/* NAVIGATION BAR / NAVBAR */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  font-family: 'Sofia Pro', sans-serif;
+  text-transform: uppercase !important;
+}
+
 .header-wrapper {
   display: block;
   position: relative;
@@ -2334,13 +2352,6 @@ input[type='checkbox'] {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
-.header {
-  display: grid;
-  grid-template-areas: 'left-icons heading icons';
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-}
-
 @media screen and (max-width: 749px) {
   .header--has-app {
     grid-template-columns: auto 1fr auto;
@@ -2349,7 +2360,7 @@ input[type='checkbox'] {
 
 @media screen and (min-width: 990px) {
   .header {
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .header--top-left,
@@ -2364,19 +2375,19 @@ input[type='checkbox'] {
   .header--middle-left.drawer-menu {
     grid-template-areas: 'navigation heading icons';
     grid-template-columns: auto 1fr auto;
-    column-gap: 1rem;
+    column-gap: 2rem;
   }
 
   .header--middle-left {
     grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto auto 1fr;
-    column-gap: 2rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 3rem;
   }
 
   .header--middle-center:not(.drawer-menu) {
     grid-template-areas: 'navigation heading icons';
-    grid-template-columns: 1fr auto 1fr;
-    column-gap: 2rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 3rem;
   }
 
   .header--middle-center a.header__heading-link {
@@ -2391,7 +2402,7 @@ input[type='checkbox'] {
 
   .header--top-center.drawer-menu {
     grid-template-areas: 'left-icons heading icons';
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
@@ -2763,13 +2774,14 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-  padding: 1.2rem;
+  padding: 1.2rem 2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
 
 .header__menu-item:hover {
   color: rgb(var(--color-foreground));
+  text-decoration: none;
 }
 
 .header__menu-item span {
@@ -2796,7 +2808,7 @@ details[open] > .header__menu-item .icon-caret {
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 0.3rem;
 }
 
@@ -3566,3 +3578,14 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+@font-face {
+  font-family: 'BodoniMedium';
+  src: url('BodoniMedium.woff2') format('woff2'), url('BodoniMedium.woff') format('woff');
+}
+
+/* #shopify-section-sections--22996721008936__announcement-bar {
+  position: sticky !important;
+  top: 0;
+  z-index: 999;
+} */

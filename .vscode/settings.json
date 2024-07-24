@@ -11,5 +11,10 @@
     "editor.defaultFormatter": "Shopify.theme-check-vscode",
     "editor.formatOnSave": true
   },
-  "themeCheck.checkOnSave": true
+  "themeCheck.checkOnSave": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#42223C",
+    "titleBar.activeBackground": "#5D3054",
+    "titleBar.activeForeground": "#FCF9FC"
+  }
 }
