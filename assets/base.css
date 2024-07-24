@@ -10,6 +10,7 @@
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
   --primary-font-family: 'BodoniMedium', Bodoni, serif;
+  --hot-pink-color: #d41367;
 }
 
 .product-card-wrapper .card,
@@ -2333,7 +2334,7 @@ input[type='checkbox'] {
 /* ////////// ANNOUNCEMENT BANNER ////////// */
 
 .h5 {
-  font-family: 'Sofia Pro', sans-serif;
+  font-family: 'Sofia Pro', sans-serif !important;
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
@@ -2371,10 +2372,11 @@ input[type='checkbox'] {
   padding: 1.2rem 2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground));
+  transition: color 0.3s ease-in-out;
 }
 
 .header__menu-item:hover {
-  color: rgb(var(--color-foreground));
+  color: var(--hot-pink-color);
   text-decoration: none;
 }
 
